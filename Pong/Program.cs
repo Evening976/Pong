@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace Pong
 {
@@ -14,8 +15,9 @@ namespace Pong
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Launcher.Launcher());
         }
     }
 #endif
