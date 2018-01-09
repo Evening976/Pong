@@ -20,7 +20,7 @@ namespace Pong.Physics
                 && Player.Position.Y + (Player.Texture.Height * Global.Scale.Y) <= Ball.Position.Y + (Ball.Texture.Height * Global.Scale.Y)
                 && Player.Position.Y >= Ball.Position.Y)
             {
-                Ball.Speed = -Ball.Speed;
+                Ball.Speed = -Ball.Speed; 
             }
             else
             {

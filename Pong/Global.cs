@@ -13,6 +13,18 @@ namespace Pong
     public static class Global
     {
         public static ContentManager gContent;
+        public static SpriteFont LoadFont(string fontname)
+        {
+            try
+            {
+                return gContent.Load<SpriteFont>(fontname);
+            }
+            catch
+            {
+                return gContent.Load<SpriteFont>("defaultfont");
+            }
+
+        }
         public static T LoadContent<T>(string filename)
         {
             try
