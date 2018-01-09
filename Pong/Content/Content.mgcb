@@ -49,3 +49,10 @@
 /processorParam:TextureFormat=Color
 /build:Racket.png
 
+#begin defaultfont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:defaultfont.spritefont
+

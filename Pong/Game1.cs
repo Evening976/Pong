@@ -130,7 +130,7 @@ namespace Pong
     Vector2.Zero, null, Color.White, 0, Vector2.Zero, Global.Scale, SpriteEffects.None, 0);
 
                 Handlers.TextRenderer.Render(spriteBatch, Player.Score.ToString(),
-                    new Vector2((Global.Resolution.X * 3) / 4, (Global.Resolution.Y * 3) / 4)); //Need to add scale to that later.
+                    new Vector2((Global.Resolution.X) / 4, (Global.Resolution.Y * 3) / 4)); //Need to add scale to that later.
 
                 Ball.Draw(spriteBatch);
                 Player.Draw(spriteBatch);
@@ -139,7 +139,7 @@ namespace Pong
             else
             {
                 Handlers.TextRenderer.Render(spriteBatch, "Press SPACE to unpause the game!",
-                    new Vector2((Global.Resolution.X / 2) - Global.gFont.MeasureString("Press SPACE to unpause the game!").X,
+                    new Vector2((Global.Resolution.X / 2) - (Global.gFont.MeasureString("Press SPACE to unpause the game!").X / 2),
                     (Global.Resolution.Y / 2) - Global.gFont.MeasureString("Press SPACE to unpause the game!").Y));
             }
 
