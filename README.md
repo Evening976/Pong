@@ -1,5 +1,5 @@
 # Pong
-Pong game made in C# using the [Monogame library],(http://www.monogame.net/).
+Pong game made in C# using the [Monogame library](http://www.monogame.net/).
 
 ### To-Do list :
 
