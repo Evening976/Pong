@@ -25,8 +25,49 @@ namespace Pong.Launcher
         {
             //Create a new game hide the window
             this.Hide();
-            timer1.Interval = 1500;    
-            GameThread = new Thread(new ThreadStart(Launch));
+            object i = comboBox1.SelectedItem;
+            timer1.Interval = 500;
+
+
+            #region The Big if
+            if (checkBox1.Checked == true)
+            {
+                if (i.ToString() == "Native")
+                {
+                    GameThread = new Thread(() => Launch(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, true));
+                }
+                else if (i.ToString() == "1080p")
+                {
+
+                    GameThread = new Thread(() => Launch(1920, 1080, true));
+                }
+                else if (i.ToString() == "720p")
+                {
+
+                    GameThread = new Thread(() => Launch(1280, 720, true));
+                }
+            }
+            else if(checkBox1.Checked == false)
+            {
+                if (i.ToString() == "Native")
+                {
+                    GameThread = new Thread(() => Launch(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, false));
+                }
+                else if (i.ToString() == "1080p")
+                {
+
+                    GameThread = new Thread(() => Launch(1920, 1080, false));
+                }
+                else if (i.ToString() == "720p")
+                {
+
+                    GameThread = new Thread(() => Launch(1280, 720, false));
+                }
+            }
+
+            #endregion
+
+
             GameThread.Start();
             timer1.Start();
 
@@ -37,9 +78,12 @@ namespace Pong.Launcher
             if (game.IsActive == false) this.Close();
         }
 
-        public void Launch()
+        public void Launch(int GameWidth, int GameHeight, bool fullscreen)
         {
-            game = new Game1();
+            Game1.Resolution = new Microsoft.Xna.Framework.Vector2(GameWidth, GameHeight);
+            Game1.isFullscreen = fullscreen;
+
+            game = new Game1();        
             game.Run();
         }
     }

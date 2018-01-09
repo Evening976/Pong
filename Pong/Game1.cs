@@ -17,6 +17,10 @@ namespace Pong
         Sprites.Ball Ball;
         Texture2D Background;
 
+        public static Vector2 Resolution;
+        public static bool isFullscreen;
+
+
         bool Pause = true;
 
         public Game1()
@@ -24,7 +28,8 @@ namespace Pong
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             Global.gContent = Content;
-            Global.Resolution = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            ChangeGraphicsSettings();
+           // Global.Resolution = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
             Global.Scale = new Vector2(Global.Resolution.X / 1920, Global.Resolution.Y / 1080);
         }
 
@@ -147,6 +152,15 @@ namespace Pong
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+
+        private void ChangeGraphicsSettings()
+        {
+            Global.Resolution.X = graphics.PreferredBackBufferWidth = (int)Resolution.X;
+            Global.Resolution.Y = graphics.PreferredBackBufferHeight = (int)Resolution.Y;
+            graphics.IsFullScreen = isFullscreen;
+            graphics.ApplyChanges();
         }
     }
 }
