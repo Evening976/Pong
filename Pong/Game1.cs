@@ -40,6 +40,8 @@ namespace Pong
             Player = new Controllables.Player();
             Ai = new Incontrollables.AI();
             Ball = new Sprites.Ball();
+            Global.gFont = Global.LoadFont("defaultfont");
+            Handlers.TextRenderer.Init();
             base.Initialize();
         }
 
@@ -122,13 +124,25 @@ namespace Pong
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
+            if(Pause == false)
+            {
+                spriteBatch.Draw(Background,
+    Vector2.Zero, null, Color.White, 0, Vector2.Zero, Global.Scale, SpriteEffects.None, 0);
 
-            spriteBatch.Draw(Background,
-                Vector2.Zero, null, Color.White, 0, Vector2.Zero, Global.Scale, SpriteEffects.None, 0);
+                Handlers.TextRenderer.Render(spriteBatch, Player.Score.ToString(),
+                    new Vector2((Global.Resolution.X * 3) / 4, (Global.Resolution.Y * 3) / 4)); //Need to add scale to that later.
 
-            Ball.Draw(spriteBatch);
-            Player.Draw(spriteBatch);
-            Ai.Draw(spriteBatch);
+                Ball.Draw(spriteBatch);
+                Player.Draw(spriteBatch);
+                Ai.Draw(spriteBatch);
+            }
+            else
+            {
+                Handlers.TextRenderer.Render(spriteBatch, "Press SPACE to unpause the game!",
+                    new Vector2((Global.Resolution.X / 2) - Global.gFont.MeasureString("Press SPACE to unpause the game!").X,
+                    (Global.Resolution.Y / 2) - Global.gFont.MeasureString("Press SPACE to unpause the game!").Y));
+            }
+
 
             spriteBatch.End();
 

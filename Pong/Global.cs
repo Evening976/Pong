@@ -38,6 +38,8 @@ namespace Pong
             }
         }
 
+        public static SpriteFont gFont;
+
         public static KeyboardState lastKeyState;
         public static KeyboardState keyState;
         public static void UpdateKeyboard()
