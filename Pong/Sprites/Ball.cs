@@ -11,11 +11,9 @@ namespace Pong.Sprites
 {
     public class Ball : Sprite
     {
-        private bool isStopped = true;
-
         public Ball()
-        {         
-            
+        {
+            layerDepth = 1;
         }
 
         public void Load()
@@ -31,17 +29,13 @@ namespace Pong.Sprites
 
         public override void Update(GameTime gameTime)
         {
-
             base.Update(gameTime);
-
-            //Gère la pause
-
         }
 
         public void Reset()
         {
             Position = new Vector2(Global.Resolution.X / 2 - Texture.Width / 2, Global.Resolution.Y / 2 - Texture.Height / 2);
-            isStopped = true;
+            //Add random speed later
             Speed = new Vector2(-0.4f, -0.4f);
         }
 

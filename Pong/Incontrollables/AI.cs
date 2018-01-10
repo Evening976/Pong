@@ -10,7 +10,7 @@ namespace Pong.Incontrollables
 {
     public class AI
     {
-        public Sprites.Racket AIRacket;
+        public Sprites.Racket Racket;
         public int Score;
 
 
@@ -21,22 +21,25 @@ namespace Pong.Incontrollables
 
         public void Load()
         {
-            AIRacket = new Sprites.Racket();
+            Racket = new Sprites.Racket();
+            Racket.Position = new Vector2
+                (Global.Resolution.X - (Racket.Texture.Width * Global.Scale.X),
+                (Global.Resolution.Y / 2) - (Racket.Texture.Height * Global.Scale.Y) / 2);
         }
 
         public void Unload()
         {
-            AIRacket.Unload();
+            Racket.Unload();
         }
 
         public void Update(GameTime gameTime)
         {
-            AIRacket.Update(gameTime);
+            Racket.Update(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            AIRacket.Draw(spriteBatch);
+            Racket.Draw(spriteBatch);
         }
     }
 }

@@ -39,10 +39,11 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <StartupObject />
+    <StartupObject>Pong.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controllables\Player.cs" />
+    <Compile Include="Handlers\AIHandler.cs" />
     <Compile Include="Launcher\Launcher.cs">
       <SubType>Form</SubType>
     </Compile>

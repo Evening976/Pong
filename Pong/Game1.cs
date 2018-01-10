@@ -112,6 +112,7 @@ namespace Pong
                 Ai.Update(gameTime);
 
                 Physics.PhysicsHandler.UpdatePhysics(Ball, Player, Ai);
+                Handlers.AIHandler.UpdateAI(Ball, Ai.Racket);
             }
             else
             {

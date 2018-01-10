@@ -14,8 +14,7 @@ namespace Pong.Sprites
         KeyboardState Input, lastInput;
 
         public Racket()
-        {
-            //Score = 0;
+        {          
             layerDepth = 1;
             if(Texture == null) { Load(); }
         }
@@ -38,11 +37,11 @@ namespace Pong.Sprites
 
             if (Input.IsKeyDown(Keys.Up) && Position.Y > 0)
             {
-                Speed.Y = -0.3f;
+                Speed.Y = -0.45f;
             }
             if (Input.IsKeyDown(Keys.Down) && Position.Y + (Texture.Height * Global.Scale.Y) < Global.Resolution.Y)
             {
-                Speed.Y = 0.3f;
+                Speed.Y = 0.5f;
             }
             if(Input.IsKeyUp(Keys.Up) && Input.IsKeyUp(Keys.Down))
             {
