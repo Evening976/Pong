@@ -88,7 +88,11 @@ namespace Pong
             Global.UpdateKeyboard();
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                graphics.IsFullScreen = false;
+                graphics.ApplyChanges();
                 Exit();
+            }
             if(Global.keyState.IsKeyDown(Keys.Space) && Global.lastKeyState.IsKeyUp(Keys.Space))
             {
                 if (Pause == true)
@@ -157,6 +161,7 @@ namespace Pong
 
         private void ChangeGraphicsSettings()
         {
+            //All changement to graphics settings should be done here
             Global.Resolution.X = graphics.PreferredBackBufferWidth = (int)Resolution.X;
             Global.Resolution.Y = graphics.PreferredBackBufferHeight = (int)Resolution.Y;
             graphics.IsFullScreen = isFullscreen;

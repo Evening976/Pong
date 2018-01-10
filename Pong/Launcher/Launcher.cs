@@ -28,45 +28,15 @@ namespace Pong.Launcher
             object i = comboBox1.SelectedItem;
             timer1.Interval = 500;
 
-
-            #region The Big if
-            if (checkBox1.Checked == true)
-            {
                 if (i.ToString() == "Native")
                 {
-                    GameThread = new Thread(() => Launch(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, true));
+                    GameThread = new Thread(() => Launch(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, Fullscreen.Checked));
                 }
-                else if (i.ToString() == "1080p")
+                else
                 {
-
-                    GameThread = new Thread(() => Launch(1920, 1080, true));
+                    String[] Resolution = i.ToString().Split('x');
+                    GameThread = new Thread(() => Launch(int.Parse(Resolution[0]), int.Parse(Resolution[1]), Fullscreen.Checked));
                 }
-                else if (i.ToString() == "720p")
-                {
-
-                    GameThread = new Thread(() => Launch(1280, 720, true));
-                }
-            }
-            else if(checkBox1.Checked == false)
-            {
-                if (i.ToString() == "Native")
-                {
-                    GameThread = new Thread(() => Launch(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height, false));
-                }
-                else if (i.ToString() == "1080p")
-                {
-
-                    GameThread = new Thread(() => Launch(1920, 1080, false));
-                }
-                else if (i.ToString() == "720p")
-                {
-
-                    GameThread = new Thread(() => Launch(1280, 720, false));
-                }
-            }
-
-            #endregion
-
 
             GameThread.Start();
             timer1.Start();
@@ -85,6 +55,11 @@ namespace Pong.Launcher
 
             game = new Game1();        
             game.Run();
+        }
+
+        private void Launcher_Load(object sender, EventArgs e)
+        {
+            this.Name = "Pong Launcher";
         }
     }
 }

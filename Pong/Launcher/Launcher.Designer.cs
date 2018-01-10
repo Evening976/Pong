@@ -33,7 +33,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.Fullscreen = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -55,8 +55,8 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Native",
-            "1080p",
-            "720p"});
+            "1920x1080",
+            "1280x720"});
             this.comboBox1.Location = new System.Drawing.Point(81, 85);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -71,28 +71,29 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Resolution :";
             // 
-            // checkBox1
+            // Fullscreen
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Location = new System.Drawing.Point(11, 124);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(80, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Fullscreen :";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.Fullscreen.AutoSize = true;
+            this.Fullscreen.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Fullscreen.Location = new System.Drawing.Point(11, 124);
+            this.Fullscreen.Name = "Fullscreen";
+            this.Fullscreen.Size = new System.Drawing.Size(80, 17);
+            this.Fullscreen.TabIndex = 4;
+            this.Fullscreen.Text = "Fullscreen :";
+            this.Fullscreen.UseVisualStyleBackColor = true;
             // 
             // Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.Fullscreen);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button1);
             this.Name = "Launcher";
             this.Text = "Launcher";
+            this.Load += new System.EventHandler(this.Launcher_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,6 +105,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox Fullscreen;
     }
 }
