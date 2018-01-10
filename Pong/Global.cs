@@ -50,5 +50,7 @@ namespace Pong
 
         public static Vector2 Resolution;
         public static Vector2 Scale;
+
+        public static float PlayerSensitivity;
     }
 }

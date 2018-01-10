@@ -37,11 +37,11 @@ namespace Pong.Sprites
 
             if (Input.IsKeyDown(Keys.Up) && Position.Y > 0)
             {
-                Speed.Y = -0.45f;
+                Speed.Y = -Global.PlayerSensitivity;
             }
             if (Input.IsKeyDown(Keys.Down) && Position.Y + (Texture.Height * Global.Scale.Y) < Global.Resolution.Y)
             {
-                Speed.Y = 0.5f;
+                Speed.Y = Global.PlayerSensitivity;
             }
             if(Input.IsKeyUp(Keys.Up) && Input.IsKeyUp(Keys.Down))
             {

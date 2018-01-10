@@ -19,6 +19,7 @@ namespace Pong
 
         public static Vector2 Resolution;
         public static bool isFullscreen;
+        public static float Sensitivity;
 
 
         bool Pause = true;
@@ -168,6 +169,7 @@ namespace Pong
             Global.Resolution.X = graphics.PreferredBackBufferWidth = (int)Resolution.X;
             Global.Resolution.Y = graphics.PreferredBackBufferHeight = (int)Resolution.Y;
             graphics.IsFullScreen = isFullscreen;
+            graphics.SynchronizeWithVerticalRetrace = false;
             graphics.ApplyChanges();
         }
     }
