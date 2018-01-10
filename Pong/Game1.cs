@@ -26,10 +26,9 @@ namespace Pong
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
-            Global.gContent = Content;
             ChangeGraphicsSettings();
-           // Global.Resolution = new Vector2(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight);
+            Content.RootDirectory = "Content";
+            Global.gContent = Content;         
             Global.Scale = new Vector2(Global.Resolution.X / 1920, Global.Resolution.Y / 1080);
         }
 
@@ -93,7 +92,7 @@ namespace Pong
                 graphics.ApplyChanges();
                 Exit();
             }
-            if(Global.keyState.IsKeyDown(Keys.Space) && Global.lastKeyState.IsKeyUp(Keys.Space))
+            if(Global.gkeyState.IsKeyDown(Keys.Space) && Global.glastKeyState.IsKeyUp(Keys.Space))
             {
                 if (Pause == true)
                 {
@@ -138,9 +137,12 @@ namespace Pong
             {
                 spriteBatch.Draw(Background,
     Vector2.Zero, null, Color.White, 0, Vector2.Zero, Global.Scale, SpriteEffects.None, 0);
-
+                //Render player's score
                 Handlers.TextRenderer.Render(spriteBatch, Player.Score.ToString(),
                     new Vector2((Global.Resolution.X) / 4, (Global.Resolution.Y * 3) / 4)); //Need to add scale to that later.
+                //Render Ai's score
+                Handlers.TextRenderer.Render(spriteBatch, Ai.Score.ToString(),
+                    new Vector2((Global.Resolution.X * 3) / 4, (Global.Resolution.Y * 3) / 4)); //Need to add scale to that too.
 
                 Ball.Draw(spriteBatch);
                 Player.Draw(spriteBatch);

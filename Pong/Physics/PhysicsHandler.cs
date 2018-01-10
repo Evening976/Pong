@@ -32,25 +32,23 @@ namespace Pong.Physics
             if (Ball.Position.Y  <= 0)
             {
                 Ball.Speed.Y = -Ball.Speed.Y;
-                Global.AIScore++;
             }
 
             if (Ball.Position.Y + Ball.Texture.Height >= Global.Resolution.Y)
             {
                 Ball.Speed.Y = -Ball.Speed.Y;
-                Global.PlayerScore++;
             }
 
             if (Ball.Position.X + (Ball.Texture.Width * Global.Scale.X) / 2 < 0)
             {
                 Ball.Reset();
-                Global.AIScore++;
+                AI.Score++;
             }
 
             if (Ball.Position.X - (Ball.Texture.Width * Global.Scale.X) / 2 > Global.Resolution.X + Ball.Texture.Width)
             {
                 Ball.Reset();
-                Global.PlayerScore++;
+                Player.Score++;
             }
 
             #endregion

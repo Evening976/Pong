@@ -40,18 +40,15 @@ namespace Pong
 
         public static SpriteFont gFont;
 
-        public static KeyboardState lastKeyState;
-        public static KeyboardState keyState;
+        public static KeyboardState glastKeyState;
+        public static KeyboardState gkeyState;
         public static void UpdateKeyboard()
         {
-            lastKeyState = keyState;
-            keyState = Keyboard.GetState();
+            glastKeyState = gkeyState;
+            gkeyState = Keyboard.GetState();
         }
 
         public static Vector2 Resolution;
         public static Vector2 Scale;
-
-        public static int PlayerScore = 0;
-        public static int AIScore = 0;
     }
 }

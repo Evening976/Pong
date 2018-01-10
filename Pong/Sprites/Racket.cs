@@ -32,8 +32,8 @@ namespace Pong.Sprites
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Input = Global.keyState;
-            lastInput = Global.lastKeyState;
+            Input = Global.gkeyState;
+            lastInput = Global.glastKeyState;
 
             if (Input.IsKeyDown(Keys.Up) && Position.Y > 0)
             {
