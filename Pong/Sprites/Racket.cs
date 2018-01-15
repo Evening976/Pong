@@ -15,20 +15,24 @@ namespace Pong.Sprites
 
         public Racket()
         {          
-            layerDepth = 1;
             if(Texture == null) { Load(); }
         }
 
         private void Load()
         {
-            Texture = Global.LoadContent<Texture2D>("Racket");
+            Texture = Global.Load<Texture2D>("Sprites/Racket");
         }
 
         public void Unload()
         {
+            if(Texture != null)Texture.Dispose();
             Texture = null;
         }
 
+        /// <summary>
+        /// This is the fonction wich is called to Update sprites every sprites has it.
+        /// </summary>
+        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
@@ -49,6 +53,11 @@ namespace Pong.Sprites
             }
         }
 
+
+        /// <summary>
+        /// This is the fonction wich is called to Render a sprite to the screen, every sprites has it.
+        /// </summary>
+        /// <param name="spriteBatch">Helper class for drawing texts strings and sprites in one or more optimized batches.</param>
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);

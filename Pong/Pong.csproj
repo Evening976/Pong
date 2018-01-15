@@ -50,7 +50,9 @@
     <Compile Include="Launcher\Launcher.Designer.cs">
       <DependentUpon>Launcher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Menu\MainMenu.cs" />
     <Compile Include="Physics\PhysicsHandler.cs" />
+    <Compile Include="Menu\Splashscreen.cs" />
     <Compile Include="Sprites\Racket.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Global.cs" />

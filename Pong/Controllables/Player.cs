@@ -37,6 +37,10 @@ namespace Pong.Controllables
             pRacket.Update(gameTime);
         }
 
+
+        /// <summary>
+        /// Unload our Player object and his sprite, call once on game closing.
+        /// </summary>
         public void Unload()
         {
             pRacket.Unload();

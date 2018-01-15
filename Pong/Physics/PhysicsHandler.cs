@@ -27,9 +27,14 @@ namespace Pong.Physics
                 
             }
             #endregion
-            #region BallHandling
 
-            if (Ball.Position.Y  <= 0)
+            BallPhysics(Ball, Player, AI);
+        }
+
+        private static void BallPhysics(Sprites.Ball Ball, Controllables.Player Player, Incontrollables.AI AI)
+        {
+
+            if (Ball.Position.Y <= 0)
             {
                 Ball.Speed.Y = -Ball.Speed.Y;
             }
@@ -50,11 +55,10 @@ namespace Pong.Physics
                 Ball.Reset();
                 Player.Score++;
             }
+        }
 
-            #endregion
-            #region RacketsHandling
-            
-            #endregion
+        private static void RacketPhysics()
+        {
 
         }
     }
